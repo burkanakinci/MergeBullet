@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d1f19be90f4ad34d9f93785fe7421b1, type: 3}
-  m_Name: LevelData
+  m_Script: {fileID: 11500000, guid: a523eeb2e029a52428849298f69b1d72, type: 3}
+  m_Name: Merging_MovementData
   m_EditorClassIdentifier: 
-  LevelNumber: 1
-  RoadCount: 2
+  m_Speed: 5

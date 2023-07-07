@@ -16,7 +16,9 @@ public class JsonConverter : CustomBehaviour
             _playerData = new PlayerData
             {
                 PlayerLevel = 1,
-                FilledNodes = new List<Node>(),
+                FilledNodesX = new List<int>(),
+                FilledNodesY = new List<int>(),
+                FilledNodesLevel = new List<int>(),
                 PlayerCoin = 100,
             };
 

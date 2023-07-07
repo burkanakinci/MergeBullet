@@ -5,13 +5,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     #region Fields
     public JsonConverter JsonConverter;
-    // public PlayerManager PlayerManager;
+    public PlayerManager PlayerManager;
     public Entities Entities;
     public ObjectPool ObjectPool;
     public LevelManager LevelManager;
     // public InputManager InputManager;
-    // public UIManager UIManager;
-    // public CameraManager CameraManager;
+    public UIManager UIManager;
+    public CameraManager CameraManager;
     #endregion
     #region Actions
     public event Action OnResetToMainMenu;
@@ -35,14 +35,14 @@ public class GameManager : MonoBehaviour
     }
     public void InitializeGameManager()
     {
-        Entities.Initialize();
         JsonConverter.Initialize();
-        // PlayerManager.Initialize();
+        PlayerManager.Initialize();
+        Entities.Initialize();
         // InputManager.Initialize();
-        // UIManager.Initialize();
+        UIManager.Initialize();
         ObjectPool.Initialize();
         LevelManager.Initialize();
-        // CameraManager.Initialize();
+        CameraManager.Initialize();
     }
     #region Events
     public void ResetToMainMenu()

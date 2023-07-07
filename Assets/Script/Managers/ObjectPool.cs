@@ -11,19 +11,17 @@ public class ObjectPool : CustomBehaviour
         public int SpawnedSize = 1;
         public DeactiveParents PrefabParent;
     }
-    [SerializeField] private List<Pool> m_Pools = new List<Pool>();
+    [SerializeField] private List<Pool> m_Pools;
     public Dictionary<string, Queue<IPooledObject>> m_poolDictionary;
 
     private IPooledObject m_SpawnOnPool;
     private IPooledObject m_TempSpawned;
-    private Queue<IPooledObject> m_TempObjectList;
     public override void Initialize()
     {
         m_poolDictionary = new Dictionary<string, Queue<IPooledObject>>();
-        m_TempObjectList = new Queue<IPooledObject>();
         for (int i = 0; i < m_Pools.Count; i++)
         {
-            m_TempObjectList.Clear();
+            Queue<IPooledObject> m_TempObjectList = new Queue<IPooledObject>();
             for (int j = 0; j < m_Pools[i].SpawnedSize; j++)
             {
                 m_TempSpawned = Instantiate(m_Pools[i].PooledPrefab, GameManager.Instance.Entities.GetDeactiveParent(m_Pools[i].PrefabParent)).GetComponent<IPooledObject>();
@@ -36,24 +34,26 @@ public class ObjectPool : CustomBehaviour
             m_poolDictionary.Add(m_Pools[i].PooledTag, m_TempObjectList);
         }
     }
-    public IPooledObject SpawnFromPool(string _prefabType, Vector3 _position = new Vector3(), Quaternion _rotation = new Quaternion(), Transform _parent = null)
+    public IPooledObject SpawnFromPool(string _pooledTag, Vector3 _position = new Vector3(), Quaternion _rotation = new Quaternion(), Transform _parent = null)
     {
-        if (!m_poolDictionary.ContainsKey(_prefabType))
+        if (!m_poolDictionary.ContainsKey(_pooledTag))
         {
             return null;
         }
-        if (m_poolDictionary[_prefabType].Count > 0)
+        if (m_poolDictionary[_pooledTag].Count > 0)
         {
-            m_SpawnOnPool = m_poolDictionary[_prefabType].Dequeue();
+            m_SpawnOnPool = m_poolDictionary[_pooledTag].Dequeue();
         }
         else
         {
-            for (int i = m_Pools.Count - 1; i >= 0; i--)
+            for (int i = 0; i < m_Pools.Count; i++)
             {
-                if (m_Pools[i].PooledPrefab.GetComponent<PooledObject>().PooledObjectTag == _prefabType)
+                if (m_Pools[i].PooledTag  == _pooledTag)
                 {
-                    m_SpawnOnPool = Instantiate(m_Pools[i].PooledPrefab, GameManager.Instance.Entities.GetDeactiveParent(m_Pools[i].PrefabParent)).GetComponent<IPooledObject>();
+                    m_SpawnOnPool = Instantiate(m_Pools[i].PooledPrefab).GetComponent<IPooledObject>();
                     m_SpawnOnPool.GetGameObject().Initialize();
+                    m_SpawnOnPool.SetDeactiveParent(m_Pools[i].PrefabParent);
+                    m_SpawnOnPool.SetPooledObjectTag(m_Pools[i].PooledTag);
                     break;
                 }
             }

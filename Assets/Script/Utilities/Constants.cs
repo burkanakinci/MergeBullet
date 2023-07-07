@@ -6,7 +6,9 @@ using System.Collections.Generic;
 public struct PlayerData
 {
     public int PlayerLevel;
-    public List<Node> FilledNodes;
+    public List<int> FilledNodesX;
+    public List<int> FilledNodesY;
+    public List<int> FilledNodesLevel;
     public int PlayerCoin;
 }
 public struct Constant
@@ -17,6 +19,7 @@ public struct PooledObjectTags
 {
     public const string ROAD = "Road";
     public const string MERGING_NODE = "MergingNode";
+    public const string CONST_MERGING_BULLET = "MergingBulletLevel";
 }
 public enum PlayerStates
 {
@@ -44,11 +47,13 @@ public enum FinishAreaType
 public enum ActiveParents
 {
     RoadActiveParent = 0,
+    MergingBulletParent = 1,
 }
 public enum DeactiveParents
 {
     RoadDeactiveParent = 0,
     NodeDeactiveParent = 1,
+    MergingBulletDeactiveParent = 2,
 }
 public enum ListOperations
 {

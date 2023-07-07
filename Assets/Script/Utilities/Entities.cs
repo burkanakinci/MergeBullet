@@ -10,11 +10,11 @@ public class Entities : CustomBehaviour
     [SerializeField] private Transform[] m_ActiveParents;
 
     [Header("Scene Objects")]
-    [SerializeField] private MergingPlatform m_MergingPlatform;
+    public MergingPlatform MergingPlatform;
 
     public override void Initialize()
     {
-        m_MergingPlatform.Initialize();
+        MergingPlatform.Initialize();
     }
     #region  Getter
     public Transform GetActiveParent(ActiveParents _activeParent)
@@ -25,5 +25,6 @@ public class Entities : CustomBehaviour
     {
         return m_DeactiveParents[(int)_deactiveParent];
     }
+
     #endregion
 }

@@ -16,7 +16,7 @@ public class MergingState : IPlayerState
     {
         GameManager.Instance.LevelManager.SetLevelNumber(m_Player.PlayerLevel);
         GameManager.Instance.LevelManager.CreateLevel();
-        GameManager.Instance.UIManager.SetCurrentUIPanel(UIPanelType.MergingPanel);
+        GameManager.Instance.UIManager.GetPanel(UIPanelType.MergingPanel).ShowPanel();
         OnEnterEvent?.Invoke();
     }
     public void UpdateLogic()

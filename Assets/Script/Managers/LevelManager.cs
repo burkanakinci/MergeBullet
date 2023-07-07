@@ -3,7 +3,7 @@ using UnityEngine;
 public class LevelManager : CustomBehaviour
 {
     #region Fields
-    private LevelData m_CurrentLevelData;
+    public LevelData CurrentLevelData { get; private set; }
     private int m_CurrentLevelNumber;
     private int m_ActiveLevelDataNumber;
     private int m_MaxLevelDataCount;
@@ -33,7 +33,7 @@ public class LevelManager : CustomBehaviour
     }
     public void GetLevelData()
     {
-        m_CurrentLevelData = Resources.Load<LevelData>("LevelDatas/" + m_ActiveLevelDataNumber + "LevelData");
+        CurrentLevelData = Resources.Load<LevelData>("LevelDatas/" + m_ActiveLevelDataNumber + "LevelData");
     }
     private void SpawnSceneObjects()
     {
