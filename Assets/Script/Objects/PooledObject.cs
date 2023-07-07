@@ -5,8 +5,7 @@ using UnityEngine;
 public class PooledObject : CustomBehaviour, IPooledObject
 {
     private DeactiveParents m_DeactiveParent;
-    [SerializeField] private PooledObjectType m_PooledObjectType;
-    public PooledObjectType PooledObjectType => m_PooledObjectType;
+    public string PooledObjectTag { get; private set; }
     public override void Initialize()
     {
     }
@@ -17,7 +16,7 @@ public class PooledObject : CustomBehaviour, IPooledObject
     public virtual void OnObjectDeactive()
     {
         GameManager.Instance.LevelManager.OnCleanSceneObject -= OnObjectDeactive;
-        GameManager.Instance.ObjectPool.AddObjectPool(m_PooledObjectType, this);
+        GameManager.Instance.ObjectPool.AddObjectPool(PooledObjectTag, this);
         this.transform.SetParent(GameManager.Instance.Entities.GetDeactiveParent(m_DeactiveParent));
         this.gameObject.SetActive(false);
     }
@@ -28,5 +27,9 @@ public class PooledObject : CustomBehaviour, IPooledObject
     public void SetDeactiveParent(DeactiveParents _deactiveParent)
     {
         m_DeactiveParent = _deactiveParent;
+    }
+    public void SetPooledObjectTag(string _tag)
+    {
+        PooledObjectTag = _tag;
     }
 }

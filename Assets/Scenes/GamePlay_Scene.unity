@@ -168,10 +168,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Pools:
   - PooledPrefab: {fileID: 6500773285012797160, guid: 25165fd8022cdaf40b19134554f32fa4, type: 3}
-    SpawnedSize: 0
+    PooledTag: Road
+    SpawnedSize: 15
     PrefabParent: 0
   - PooledPrefab: {fileID: 8646781634260203313, guid: ec599d00e026b9046b1c008e6ecf9d57, type: 3}
-    SpawnedSize: 0
+    PooledTag: MergingNode
+    SpawnedSize: 30
     PrefabParent: 1
 --- !u!1 &166347164
 GameObject:
@@ -242,7 +244,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1881919252}
   m_Father: {fileID: 317943562}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -351,8 +354,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 317943562}
+  - component: {fileID: 317943563}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Merging1LevelBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,6 +377,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &317943563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317943561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea8f41074740094e8b9bf0253ccbba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BulletRB: {fileID: 0}
+  m_BulletMovementData: {fileID: 0}
 --- !u!114 &401032815 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4740456969689843794, guid: 8376e81ff93e16f419a2819ebe008f6d, type: 3}
@@ -1085,7 +1103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CanvasGroup: {fileID: 1086200649}
   m_PanelAreas: []
-  m_ShotButton: {fileID: 0}
+  m_ShotButton: {fileID: 1999781369}
 --- !u!225 &1086200649 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 2436989863115333970, guid: e4d9973652ab6ef4eaf5918b8a979945, type: 3}
@@ -1277,6 +1295,36 @@ MonoBehaviour:
   m_ActiveParents:
   - {fileID: 1135351666}
   m_MergingPlatform: {fileID: 516933704}
+--- !u!1 &1881919251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881919252}
+  m_Layer: 0
+  m_Name: BulletLevelText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881919252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881919251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 230086124}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1886575300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1360,6 +1408,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999781369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4740456968084665284, guid: 8376e81ff93e16f419a2819ebe008f6d, type: 3}
+  m_PrefabInstance: {fileID: 4740456969306115645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3367be65f2dead4a94afdee4ee74f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2066651287
 GameObject:
   m_ObjectHideFlags: 0

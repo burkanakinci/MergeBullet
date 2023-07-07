@@ -13,10 +13,10 @@ public struct Constant
 {
     public const string PLAYER_DATA = "PlayerSavedData";
 }
-public enum PooledObjectType
+public struct PooledObjectTags
 {
-    Road = 0,
-    MergingNode=1,
+    public const string ROAD = "Road";
+    public const string MERGING_NODE = "MergingNode";
 }
 public enum PlayerStates
 {
@@ -24,7 +24,7 @@ public enum PlayerStates
     RunState = 1,
     WinState = 2,
     FailState = 3,
-    GeneralState=4,
+    GeneralState = 4,
 }
 public enum ObjectsLayer
 {
@@ -48,7 +48,7 @@ public enum ActiveParents
 public enum DeactiveParents
 {
     RoadDeactiveParent = 0,
-    NodeDeactiveParent=1,
+    NodeDeactiveParent = 1,
 }
 public enum ListOperations
 {
