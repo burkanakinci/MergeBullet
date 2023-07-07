@@ -7,4 +7,5 @@ public interface IPlayerState : IState
 {
     Action OnEnterEvent { get; set; }
     Action OnExitEvent { get; set; }
+    void TriggerEnter(Collider _other);
 }

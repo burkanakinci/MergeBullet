@@ -2,18 +2,19 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Collections;
-
-
 public class Entities : CustomBehaviour
 {
-    
-    [Header("Scene Objects")]
+
+    [Header("Hierarchy Objects")]
     [SerializeField] private Transform[] m_DeactiveParents;
     [SerializeField] private Transform[] m_ActiveParents;
 
+    [Header("Scene Objects")]
+    [SerializeField] private MergingPlatform m_MergingPlatform;
+
     public override void Initialize()
     {
-
+        m_MergingPlatform.Initialize();
     }
     #region  Getter
     public Transform GetActiveParent(ActiveParents _activeParent)

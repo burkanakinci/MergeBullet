@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class JsonConverter : CustomBehaviour
 {
     private string m_TempJsonData;
@@ -13,9 +13,11 @@ public class JsonConverter : CustomBehaviour
         if (string.IsNullOrEmpty(data))
         {
 
-            _playerData = new PlayerData{
-                PlayerLevel=1,
-                PlayerCoin=100,
+            _playerData = new PlayerData
+            {
+                PlayerLevel = 1,
+                FilledNodes = new List<Node>(),
+                PlayerCoin = 100,
             };
 
             SavePlayerData(_playerData);

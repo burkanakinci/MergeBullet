@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public struct PlayerData
 {
     public int PlayerLevel;
-    public int PlayerScore;
+    public List<Node> FilledNodes;
     public int PlayerCoin;
 }
 public struct Constant
@@ -16,14 +16,15 @@ public struct Constant
 public enum PooledObjectType
 {
     Road = 0,
+    MergingNode=1,
 }
 public enum PlayerStates
 {
     MergingState = 0,
     RunState = 1,
-    FinishState = 2,
+    WinState = 2,
     FailState = 3,
-    GeneralState,
+    GeneralState=4,
 }
 public enum ObjectsLayer
 {
@@ -47,6 +48,7 @@ public enum ActiveParents
 public enum DeactiveParents
 {
     RoadDeactiveParent = 0,
+    NodeDeactiveParent=1,
 }
 public enum ListOperations
 {
