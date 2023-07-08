@@ -26,6 +26,7 @@ public class MergingState : IPlayerState
     private Ray m_MergingRay;
     private int m_MergingLayerMask;
     private MergingBullet m_ClickedMergingBullet;
+    private Node m_ClickedNode;
     private void MergingRay()
     {
         m_MergingRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -41,18 +42,19 @@ public class MergingState : IPlayerState
         {
             m_ClickedMergingBullet = m_MergingHit.transform.GetComponent<MergingBullet>();
             m_ClickedMergingBullet.CLickedMergingBullet();
+            m_MergingLayerMask = 1 << (int)ObjectsLayer.Node;
             m_RayCollidedEvent = () =>
             {
                 SwipeMergingBullet();
+                m_ClickedNode = m_MergingHit.transform.GetComponent<Node>();
             };
-            m_MergingLayerMask = 1 << (int)ObjectsLayer.Road;
         };
     }
     private void SwipeMergingBullet()
     {
         if (m_ClickedMergingBullet != null)
         {
-            m_ClickedMergingBullet.transform.position = new Vector3(m_MergingHit.point.x, m_ClickedMergingBullet.transform.position.y, m_MergingHit.point.z);
+            m_ClickedMergingBullet.ClickedMovementMergingBullet(m_MergingHit.point);
         }
     }
     private void InputUp()
@@ -60,8 +62,8 @@ public class MergingState : IPlayerState
         m_MergingLayerMask = -1;
         if (m_ClickedMergingBullet != null)
         {
-            m_ClickedMergingBullet.ClickUpMergingBullet();
-            m_ClickedMergingBullet = null; 
+            m_ClickedMergingBullet.CheckMerginBullet(m_ClickedNode);
+            m_ClickedMergingBullet = null;
         }
     }
     public void UpdateLogic()

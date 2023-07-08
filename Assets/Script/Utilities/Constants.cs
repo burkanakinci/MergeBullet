@@ -34,6 +34,7 @@ public enum ObjectsLayer
     Default = 0,
     MergingBullet=6,
     Road=7,
+    Node=8,
 }
 public enum UIPanelType
 {

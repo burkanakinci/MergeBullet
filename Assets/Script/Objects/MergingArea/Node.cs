@@ -28,6 +28,7 @@ public class Node : PooledObject
     public void SetBulletOnNode(MergingBullet _bullet)
     {
         BulletOnNode = _bullet;
-        BulletOnNode.SetCurrentNode(this);
+        if (BulletOnNode != null)
+            BulletOnNode.SetCurrentNode(this);
     }
 }

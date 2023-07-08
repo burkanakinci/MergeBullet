@@ -179,6 +179,18 @@ MonoBehaviour:
     PooledTag: MergingBulletLevel1
     SpawnedSize: 5
     PrefabParent: 2
+  - PooledPrefab: {fileID: 1184994505354868105, guid: 8259f90298cd8ed41b9ba67bdb2f24af, type: 3}
+    PooledTag: MergingBulletLevel2
+    SpawnedSize: 5
+    PrefabParent: 2
+  - PooledPrefab: {fileID: 237785815484272005, guid: 0ead7e20afe21c44baadbe0683a80ea8, type: 3}
+    PooledTag: MergingBulletLevel3
+    SpawnedSize: 5
+    PrefabParent: 2
+  - PooledPrefab: {fileID: 1695781884158291565, guid: 6c4e14357603d8e42b3118318cdf48e4, type: 3}
+    PooledTag: MergingBulletLevel4
+    SpawnedSize: 5
+    PrefabParent: 2
 --- !u!1 &166347164
 GameObject:
   m_ObjectHideFlags: 0
