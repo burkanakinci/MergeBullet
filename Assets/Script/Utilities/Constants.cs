@@ -20,6 +20,7 @@ public struct PooledObjectTags
     public const string ROAD = "Road";
     public const string MERGING_NODE = "MergingNode";
     public const string CONST_MERGING_BULLET = "MergingBulletLevel";
+    public const string GUN = "Gun";
 }
 public enum PlayerStates
 {
@@ -32,9 +33,9 @@ public enum PlayerStates
 public enum ObjectsLayer
 {
     Default = 0,
-    MergingBullet=6,
-    Road=7,
-    Node=8,
+    MergingBullet = 6,
+    Road = 7,
+    Node = 8,
 }
 public enum UIPanelType
 {
@@ -51,12 +52,14 @@ public enum ActiveParents
 {
     RoadActiveParent = 0,
     MergingBulletParent = 1,
+    GunParent=2,
 }
 public enum DeactiveParents
 {
     RoadDeactiveParent = 0,
     NodeDeactiveParent = 1,
     MergingBulletDeactiveParent = 2,
+    GunDeactiveParent=3,
 }
 public enum ListOperations
 {

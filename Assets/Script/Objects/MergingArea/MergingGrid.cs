@@ -21,6 +21,13 @@ public class MergingGrid : CustomBehaviour<MergingPlatform>
     private void CreateNodes()
     {
         SetGridSize();
+        SpawnNodes();
+        GameManager.Instance.PlayerManager.Player.SetFilledNodes();
+        SpawnFilledNodes();
+        SpawnGuns();
+    }
+    private void SpawnNodes()
+    {
         m_TempNodePos = Vector3.up * 0.1f;
         m_MergingNodes = new Node[m_GridWeight, m_GridHeight];
         for (int _y = 0; _y < m_GridHeight; _y++)
@@ -38,10 +45,12 @@ public class MergingGrid : CustomBehaviour<MergingPlatform>
                 m_TempSpawnedNode.SetNode(_x, _y);
             }
         }
-        GameManager.Instance.PlayerManager.Player.SetFilledNodes();
+    }
+    private void SpawnFilledNodes()
+    {
         for (int _filledCount = 0; _filledCount < GameManager.Instance.PlayerManager.Player.PlayerFilledNodes.Count; _filledCount++)
         {
-            m_TempSpawnedBulletTag=PooledObjectTags.CONST_MERGING_BULLET + GameManager.Instance.PlayerManager.Player.PlayerFilledNodes.ElementAt(_filledCount).Value.ToString();
+            m_TempSpawnedBulletTag = PooledObjectTags.CONST_MERGING_BULLET + GameManager.Instance.PlayerManager.Player.PlayerFilledNodes.ElementAt(_filledCount).Value.ToString();
             m_TempFilledNode = GameManager.Instance.PlayerManager.Player.PlayerFilledNodes.ElementAt(_filledCount).Key;
             m_TempFilledNode.SetBulletOnNode(
                 GameManager.Instance.ObjectPool.SpawnFromPool(
@@ -50,6 +59,18 @@ public class MergingGrid : CustomBehaviour<MergingPlatform>
                     Quaternion.identity,
                     GameManager.Instance.Entities.GetActiveParent(ActiveParents.MergingBulletParent)
                     ).GetGameObject().GetComponent<MergingBullet>());
+        }
+    }
+    private void SpawnGuns()
+    {
+        for (int _x = 0; _x < m_MergingNodes.GetLength(0); _x++)
+        {
+            GameManager.Instance.ObjectPool.SpawnFromPool(
+                PooledObjectTags.GUN,
+                m_MergingNodes[_x, 0].transform.position + Vector3.forward * 12.5f,
+                Quaternion.identity,
+                GameManager.Instance.Entities.GetActiveParent(ActiveParents.GunParent)
+            );
         }
     }
     private void SetGridSize()

@@ -37,7 +37,6 @@ public class MergingPlatform : CustomBehaviour
     }
     public void ForwardMergingBullets()
     {
-        Debug.Log(m_MergingBullets.Count);
         for (int _mergingCount = 0; _mergingCount < m_MergingBullets.Count; _mergingCount++)
         {
             m_MergingBullets[_mergingCount].SetVelocity();

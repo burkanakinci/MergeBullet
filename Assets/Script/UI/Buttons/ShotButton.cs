@@ -11,7 +11,6 @@ public class ShotButton : UIBaseButton<MergingPanel>
     }
     protected override void OnClickAction()
     {
-        Debug.Log("Shoooot!!!");
         GameManager.Instance.Entities.MergingPlatform.ShootMergingBullets();
     }
 }
