@@ -180,8 +180,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8045635187421402163}
   - component: {fileID: 8045635187421402165}
+  - component: {fileID: 7436936711063138483}
   - component: {fileID: 8045635187421402162}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MergingBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,6 +220,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &7436936711063138483
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8045635187421402160}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.34
+  m_Height: 1
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.33, z: 0}
 --- !u!114 &8045635187421402162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +249,8 @@ MonoBehaviour:
   m_BulletLevel: 0
   m_BulletRB: {fileID: 8045635187421402165}
   m_BulletMovementData: {fileID: 11400000, guid: 111fa6ba3c257884cbfd563f887d5eb7, type: 2}
+  m_MergingBulletData: {fileID: 11400000, guid: 81a1a584e5d987d4c93cd4dc4b859261, type: 2}
+  m_BulletVisual: {fileID: 8045635187610447573}
 --- !u!1 &8045635187610447570
 GameObject:
   m_ObjectHideFlags: 0

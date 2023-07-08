@@ -19,7 +19,7 @@ public class JsonConverter : CustomBehaviour
                 FilledNodesX = new List<int>(),
                 FilledNodesY = new List<int>(),
                 FilledNodesLevel = new List<int>(),
-                PlayerCoin = 100,
+                PlayerCoin = 4000,
             };
 
             SavePlayerData(_playerData);

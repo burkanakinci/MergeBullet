@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public Entities Entities;
     public ObjectPool ObjectPool;
     public LevelManager LevelManager;
-    // public InputManager InputManager;
+    public InputManager InputManager;
     public UIManager UIManager;
     public CameraManager CameraManager;
     #endregion
@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         JsonConverter.Initialize();
         PlayerManager.Initialize();
         Entities.Initialize();
-        // InputManager.Initialize();
+        InputManager.Initialize();
         UIManager.Initialize();
         ObjectPool.Initialize();
         LevelManager.Initialize();

@@ -42,7 +42,6 @@ public class MergingGrid : CustomBehaviour<MergingPlatform>
         for (int _filledCount = 0; _filledCount < GameManager.Instance.PlayerManager.Player.PlayerFilledNodes.Count; _filledCount++)
         {
             m_TempSpawnedBulletTag=PooledObjectTags.CONST_MERGING_BULLET + GameManager.Instance.PlayerManager.Player.PlayerFilledNodes.ElementAt(_filledCount).Value.ToString();
-            Debug.Log(m_TempSpawnedBulletTag);
             m_TempFilledNode = GameManager.Instance.PlayerManager.Player.PlayerFilledNodes.ElementAt(_filledCount).Key;
             m_TempFilledNode.SetBulletOnNode(
                 GameManager.Instance.ObjectPool.SpawnFromPool(

@@ -32,6 +32,8 @@ public enum PlayerStates
 public enum ObjectsLayer
 {
     Default = 0,
+    MergingBullet=6,
+    Road=7,
 }
 public enum UIPanelType
 {

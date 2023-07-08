@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Bullet : PooledObject
 {
-    [SerializeField] private int m_BulletLevel;
-    [SerializeField] private Rigidbody m_BulletRB;
-    [SerializeField] private BulletMovementData m_BulletMovementData;
+    [SerializeField] protected Rigidbody m_BulletRB;
+    [SerializeField] protected BulletVisual m_BulletVisual;
+    [SerializeField] protected BulletMovementData m_BulletMovementData;
     public override void Initialize()
     {
         base.Initialize();
+        m_BulletVisual.Initialize(this);
     }
     public override void OnObjectSpawn()
     {
