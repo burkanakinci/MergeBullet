@@ -16,17 +16,21 @@ public class MergingBullet : Bullet
         m_ClickedSequenceID = GetInstanceID() + "m_ClickedSequenceID";
         m_MergingBulletMoveTweenID = GetInstanceID() + "m_MergingBulletMoveTweenID";
         m_BulletText.text = "LV." + BulletLevel.ToString();
+        m_MergedSpawnTag = PooledObjectTags.CONST_MERGING_BULLET + (BulletLevel + 1).ToString();
     }
     public override void OnObjectSpawn()
     {
         base.OnObjectSpawn();
         SetIsKinematic(true);
+        GameManager.Instance.Entities.MergingPlatform.OnShootMergingBullets += OnShoot;
     }
     public override void OnObjectDeactive()
     {
-        base.OnObjectDeactive();
         KillAllTween();
         m_CurrentNode.SetBulletOnNode(null);
+        GameManager.Instance.Entities.MergingPlatform.OnShootMergingBullets -= OnShoot;
+        GameManager.Instance.Entities.MergingPlatform.SetMergingBulletList(ListOperations.Substraction, this);
+        base.OnObjectDeactive();
     }
     public void SetCurrentNode(Node _node)
     {
@@ -49,26 +53,30 @@ public class MergingBullet : Bullet
     }
     public void ClickedMovementMergingBullet(Vector3 _pos)
     {
-        transform.position = new Vector3(_pos.x, transform.position.y, _pos.z);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(_pos.x, transform.position.y, _pos.z), Time.deltaTime * 10.0f);
     }
     private MergingBullet m_TempSpawnedBullet;
+    private string m_MergedSpawnTag;
     public void CheckMerginBullet(Node _clickedUpNode)
     {
-        if (_clickedUpNode.BulletOnNode != null && _clickedUpNode.BulletOnNode != this)
+        if (_clickedUpNode.BulletOnNode != null && _clickedUpNode.BulletOnNode != this && BulletLevel < 4)
         {
             if (_clickedUpNode.BulletOnNode.BulletLevel == BulletLevel)
             {
                 ClickUpMergingBullet(_clickedUpNode.BulletOnNode.transform.position,
                 () =>
                 {
-                    _clickedUpNode.BulletOnNode.OnObjectDeactive();
                     m_TempSpawnedBullet = GameManager.Instance.ObjectPool.SpawnFromPool(
-                        PooledObjectTags.CONST_MERGING_BULLET + (BulletLevel + 1).ToString(),
+                        m_MergedSpawnTag,
                         _clickedUpNode.transform.position,
                         Quaternion.identity,
                         GameManager.Instance.Entities.GetActiveParent(ActiveParents.MergingBulletParent)
                     ).GetGameObject().GetComponent<MergingBullet>();
+                    _clickedUpNode.BulletOnNode.OnObjectDeactive();
+                    GameManager.Instance.PlayerManager.Player.RemovePlayerFilledNodes(_clickedUpNode);
+                    GameManager.Instance.PlayerManager.Player.RemovePlayerFilledNodes(m_CurrentNode);
                     _clickedUpNode.SetBulletOnNode(m_TempSpawnedBullet);
+                    GameManager.Instance.PlayerManager.Player.AddPlayerFilledNodes(_clickedUpNode, m_TempSpawnedBullet.BulletLevel);
                     OnObjectDeactive();
                 });
             }
@@ -80,7 +88,9 @@ public class MergingBullet : Bullet
         else
         {
             m_CurrentNode.SetBulletOnNode(null);
+            GameManager.Instance.PlayerManager.Player.RemovePlayerFilledNodes(m_CurrentNode);
             _clickedUpNode.SetBulletOnNode(this);
+            GameManager.Instance.PlayerManager.Player.AddPlayerFilledNodes(_clickedUpNode, BulletLevel);
             ClickUpMergingBullet(m_CurrentNode.transform.position, () => { });
         }
     }
@@ -98,9 +108,19 @@ public class MergingBullet : Bullet
         DOTween.Kill(m_MergingBulletMoveTweenID);
         return transform.DOMove(_target, _duration);
     }
+    private void OnShoot()
+    {
+        SetIsKinematic(false);
+        GameManager.Instance.Entities.MergingPlatform.SetMergingBulletList(ListOperations.Adding, this);
+    }
     private void KillAllTween()
     {
         m_ClickedSequence.Kill();
         DOTween.Kill(m_MergingBulletMoveTweenID);
+    }
+    private void OnDestroy()
+    {
+        KillAllTween();
+        GameManager.Instance.Entities.MergingPlatform.OnShootMergingBullets -= OnShoot;
     }
 }

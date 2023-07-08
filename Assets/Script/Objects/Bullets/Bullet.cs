@@ -22,4 +22,8 @@ public class Bullet : PooledObject
     {
         base.OnObjectDeactive();
     }
+    public void SetVelocity()
+    {
+        m_BulletRB.velocity = Vector3.forward * m_BulletMovementData.BulletSpeed;
+    }
 }

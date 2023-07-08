@@ -64,4 +64,8 @@ public class Player : CustomBehaviour<PlayerManager>
     {
         PlayerStateMachine.LogicalUpdate();
     }
+    private void FixedUpdate()
+    {
+        PlayerStateMachine.PhysicalUpdate();
+    }
 }

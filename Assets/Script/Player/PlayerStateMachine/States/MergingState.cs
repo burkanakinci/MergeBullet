@@ -73,7 +73,7 @@ public class MergingState : IPlayerState
     }
     public void UpdatePhysic()
     {
-
+        GameManager.Instance.Entities.MergingPlatform.ForwardMergingBullets();
     }
     public void Exit()
     {
