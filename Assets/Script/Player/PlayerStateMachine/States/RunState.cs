@@ -67,7 +67,6 @@ public class RunState : IPlayerState
             m_TempDecreaseRateValue = m_Player.BulletLifeTime / 2.0f;
             m_TempDecreaseRateValue *= (Mathf.Clamp(m_TempCollidedGate.GateValue, 0, 100) / 100.0f);
             m_Player.BulletLifeTime += m_TempDecreaseRateValue;
-            Debug.Log(m_Player.BulletLifeTime);
         }
     }
 }

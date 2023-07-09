@@ -9,6 +9,8 @@ TagManager:
   - FireRateGate
   - ShootingBullet
   - RangeGate
+  - Obstacle
+  - Gun
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Gun
   - ShootingBullet
   - Gate
-  - 
+  - Obstacle
   - 
   - 
   - 

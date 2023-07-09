@@ -25,6 +25,8 @@ public struct PooledObjectTags
     public const string TRIPLE_SHOOT_GATE = "TipleShootGate";
     public const string FIRE_RATE_GATE = "FireRateGate";
     public const string RANGE_GATE = "RangeGate";
+    public const string OBSTACLE_WALL = "ObstacleWall";
+    public const string OBSTACLE_MISSILE = "ObstacleMissile";
 }
 public struct ObjectTags
 {
@@ -33,6 +35,9 @@ public struct ObjectTags
     public const string FIRE_RATE_GATE = "FireRateGate";
     public const string SHOOTING_BULLET = "ShootingBullet";
     public const string RANGE_GATE = "RangeGate";
+    public const string OBSTACLE = "Obstacle";
+    public const string GUN="Gun";
+    public const string ROAD="Road";
 }
 public enum PlayerStates
 {
@@ -52,6 +57,7 @@ public enum ObjectsLayer
     Gun = 10,
     ShootingBullet = 11,
     Gate = 12,
+    Obstacle = 13,
 }
 public enum UIPanelType
 {
@@ -70,7 +76,8 @@ public enum ActiveParents
     MergingBulletParent = 1,
     GunActiveParent = 2,
     ShootingBulletActiveParent = 3,
-    Gate = 4,
+    GateActiveParent = 4,
+    ObstacleActiveParent = 5,
 }
 public enum DeactiveParents
 {
@@ -79,7 +86,8 @@ public enum DeactiveParents
     MergingBulletDeactiveParent = 2,
     GunDeactiveParent = 3,
     ShootingBulletDeactiveParent = 4,
-    Gate = 5,
+    GateDeactiveParent = 5,
+    ObstacleDeactiveParent = 6,
 }
 public enum ListOperations
 {
