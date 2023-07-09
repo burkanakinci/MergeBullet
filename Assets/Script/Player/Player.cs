@@ -38,6 +38,7 @@ public class Player : CustomBehaviour<PlayerManager>
         PlayerFilledNodes = new Dictionary<Node, int>();
         m_Guns = new List<Gun>();
         m_ChangeStateDelayID = GetInstanceID() + "m_ChangeStateDelayID";
+        BulletLifeTime = 1.0f;
     }
     public void SetPlayerCoin(int _coin)
     {

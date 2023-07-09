@@ -60,13 +60,14 @@ public class RunState : IPlayerState
             m_TempDecreaseRateValue *= (Mathf.Clamp(m_TempCollidedGate.GateValue, 0, 100) / 100.0f);
             m_Player.ShootRate -= m_TempDecreaseRateValue;
         }
-        else if (_other.CompareTag(ObjectTags.FIRE_RATE_GATE) && _other.gameObject.layer != (int)ObjectsLayer.Default)
+        else if (_other.CompareTag(ObjectTags.RANGE_GATE) && _other.gameObject.layer != (int)ObjectsLayer.Default)
         {
             _other.gameObject.layer = (int)ObjectsLayer.Default;
             m_TempCollidedGate = _other.GetComponent<IncreaseGate>();
             m_TempDecreaseRateValue = m_Player.BulletLifeTime / 2.0f;
             m_TempDecreaseRateValue *= (Mathf.Clamp(m_TempCollidedGate.GateValue, 0, 100) / 100.0f);
             m_Player.BulletLifeTime += m_TempDecreaseRateValue;
+            Debug.Log(m_Player.BulletLifeTime);
         }
     }
 }
