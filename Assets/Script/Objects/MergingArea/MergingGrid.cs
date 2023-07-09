@@ -69,7 +69,7 @@ public class MergingGrid : CustomBehaviour<MergingPlatform>
                 PooledObjectTags.GUN,
                 m_MergingNodes[_x, 0].transform.position + Vector3.forward * 12.5f,
                 Quaternion.identity,
-                GameManager.Instance.Entities.GetActiveParent(ActiveParents.GunParent)
+                GameManager.Instance.Entities.GetActiveParent(ActiveParents.GunActiveParent)
             );
         }
     }

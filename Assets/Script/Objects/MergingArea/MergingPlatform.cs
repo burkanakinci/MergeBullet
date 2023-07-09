@@ -8,6 +8,9 @@ public class MergingPlatform : CustomBehaviour
     public MergingGrid MergingGrid;
     private List<MergingBullet> m_MergingBullets;
     public event Action OnShootMergingBullets;
+    #region ExternalAccess
+    public int MerginBulletCount => m_MergingBullets.Count;
+    #endregion
     public override void Initialize()
     {
         MergingGrid.Initialize(this);
@@ -23,7 +26,7 @@ public class MergingPlatform : CustomBehaviour
                     m_MergingBullets.Add(_merginBullet);
                 }
                 break;
-            case ListOperations.Substraction:
+            case ListOperations.Removing:
                 if (m_MergingBullets.Contains(_merginBullet))
                 {
                     m_MergingBullets.Remove(_merginBullet);

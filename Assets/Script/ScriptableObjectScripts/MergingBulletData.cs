@@ -17,6 +17,11 @@ public class MergingBulletData : ScriptableObject
     [Header("Clicked Up Tween")]
     [SerializeField] private float m_ClickedUpMovementDuration;
     [SerializeField] private Ease m_ClickedUpMovementEase = Ease.Linear;
+
+    [Header("On Start Game")]
+    [SerializeField] private float m_JumpPower;
+    [SerializeField] private float m_JumpGunTweenDuration;
+    [SerializeField] private Ease m_JumpGunTweenEase = Ease.Linear;
     #endregion
     #region ExternalAccess
     public float ClickedScaleDuration => m_ClickedScaleDuration;
@@ -27,5 +32,8 @@ public class MergingBulletData : ScriptableObject
     public float ClickedHeight => m_ClickedHeight;
     public float ClickedUpMovementDuration => m_ClickedUpMovementDuration;
     public Ease ClickedUpMovementEase => m_ClickedUpMovementEase;
+    public float JumpPower => m_JumpPower;
+    public float JumpGunTweenDuration => m_JumpGunTweenDuration;
+    public Ease JumpGunTweenEase => m_JumpGunTweenEase;
     #endregion
 }

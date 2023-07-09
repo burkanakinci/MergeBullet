@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "CameraData", menuName = "Camera Data")]
 public class CameraData : ScriptableObject

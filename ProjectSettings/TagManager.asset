@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - StartTrigger
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - MerginBullet
   - Road
   - Node
-  - 
+  - StartTrigger
   - 
   - 
   - 

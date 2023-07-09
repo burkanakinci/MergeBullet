@@ -24,6 +24,6 @@ public class Bullet : PooledObject
     }
     public void SetVelocity()
     {
-        m_BulletRB.velocity = Vector3.forward * m_BulletMovementData.BulletSpeed;
+        m_BulletRB.velocity = transform.forward * m_BulletMovementData.BulletSpeed;
     }
 }

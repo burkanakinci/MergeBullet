@@ -14,6 +14,10 @@ public class BulletVisual : CustomBehaviour<Bullet>
     public Tween BulletVisualScaleTween(Vector3 _target, float _duration)
     {
         DOTween.Kill(m_BulletVisualScaleTweenID);
-        return transform.DOScale(_target, _duration);
+        return transform.DOScale(_target, _duration).SetId(m_BulletVisualScaleTweenID);
+    }
+    public void KillAllTween()
+    {
+        DOTween.Kill(m_BulletVisualScaleTweenID);
     }
 }

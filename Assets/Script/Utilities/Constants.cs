@@ -21,6 +21,11 @@ public struct PooledObjectTags
     public const string MERGING_NODE = "MergingNode";
     public const string CONST_MERGING_BULLET = "MergingBulletLevel";
     public const string GUN = "Gun";
+    public const string CONST_SHOOTING_BULLET = "ShootingBulletLevel";
+}
+public struct ObjectTags
+{
+    public const string START_GAME_TRIGGER = "StartTrigger";
 }
 public enum PlayerStates
 {
@@ -36,6 +41,8 @@ public enum ObjectsLayer
     MergingBullet = 6,
     Road = 7,
     Node = 8,
+    StartGameTrigger = 9,
+    ShootingBullet=10,
 }
 public enum UIPanelType
 {
@@ -52,18 +59,20 @@ public enum ActiveParents
 {
     RoadActiveParent = 0,
     MergingBulletParent = 1,
-    GunParent=2,
+    GunActiveParent=2,
+    ShootingBulletActiveParent=3,
 }
 public enum DeactiveParents
 {
     RoadDeactiveParent = 0,
     NodeDeactiveParent = 1,
     MergingBulletDeactiveParent = 2,
-    GunDeactiveParent=3,
+    GunDeactiveParent = 3,
+    ShootingBulletDeactiveParent=4,
 }
 public enum ListOperations
 {
     Adding,
-    Substraction,
+    Removing,
 }
 

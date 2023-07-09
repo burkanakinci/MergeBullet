@@ -32,4 +32,8 @@ public class PooledObject : CustomBehaviour, IPooledObject
     {
         PooledObjectTag = _tag;
     }
+    protected virtual void OnDestroy()
+    {
+        GameManager.Instance.LevelManager.OnCleanSceneObject -= OnObjectDeactive;
+    }
 }

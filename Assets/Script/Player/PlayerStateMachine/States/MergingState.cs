@@ -14,6 +14,7 @@ public class MergingState : IPlayerState
 
     public void Enter()
     {
+        m_Player.transform.position = Vector3.forward * 12.5f;
         GameManager.Instance.LevelManager.SetLevelNumber(m_Player.PlayerLevel);
         GameManager.Instance.LevelManager.CreateLevel();
         GameManager.Instance.UIManager.GetPanel(UIPanelType.MergingPanel).ShowPanel();
