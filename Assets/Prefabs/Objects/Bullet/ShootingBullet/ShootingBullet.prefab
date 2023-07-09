@@ -53,10 +53,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3040896368723761745}
   - component: {fileID: 3040896368723761747}
+  - component: {fileID: 7114445709944380240}
   - component: {fileID: 3040896368723761744}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShootingBullet
-  m_TagString: Untagged
+  m_TagString: ShootingBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,6 +93,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &7114445709944380240
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3040896368723761758}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.24
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.08, z: 0.11601435}
 --- !u!114 &3040896368723761744
 MonoBehaviour:
   m_ObjectHideFlags: 0

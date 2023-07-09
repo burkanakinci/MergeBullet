@@ -62,7 +62,7 @@ public class Gun : PooledObject
     {
         for (int _shoot = 0; _shoot < _shootCount; _shoot++)
         {
-            m_TempBulletPointEuler = (_shoot % 2 == 1) ? (-45.0f) : (45.0f * _shoot);
+            m_TempBulletPointEuler = (_shoot % 2 == 1) ? (-30.0f) : (15.0f * _shoot);
             GameManager.Instance.ObjectPool.SpawnFromPool(
                 PooledObjectTags.CONST_SHOOTING_BULLET + SpawnBulletLevel,
                 m_BulletSpawnPoint.position,
@@ -82,5 +82,9 @@ public class Gun : PooledObject
         KillAllTween();
         GameManager.Instance.PlayerManager.Player.OnCompleteMergingState -= OnCompleteMergingState;
         GameManager.Instance.PlayerManager.Player.OnShooting -= GunShoot;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        GameManager.Instance.PlayerManager.Player.PlayerStateMachine.GetPlayerState(PlayerStates.RunState).TriggerEnter(other);
     }
 }

@@ -211,6 +211,18 @@ MonoBehaviour:
     PooledTag: ShootingBulletLevel4
     SpawnedSize: 20
     PrefabParent: 4
+  - PooledPrefab: {fileID: 1977003378695157163, guid: a094c86c3995897458daa694e2196813, type: 3}
+    PooledTag: TipleShootGate
+    SpawnedSize: 10
+    PrefabParent: 5
+  - PooledPrefab: {fileID: 3154033825612588124, guid: 8c5ad158135087549a74b28d8384a122, type: 3}
+    PooledTag: FireRateGate
+    SpawnedSize: 10
+    PrefabParent: 5
+  - PooledPrefab: {fileID: 2464046199496841657, guid: 4fb2c091841a6a64d829b804bdfea948, type: 3}
+    PooledTag: RangeGate
+    SpawnedSize: 10
+    PrefabParent: 5
 --- !u!1 &60981106
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204418655}
   m_Layer: 0
-  m_Name: DeactiveShootingBullet
+  m_Name: DeactiveShootingBullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -988,6 +1000,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MainCamera: {fileID: 963194227}
   m_CameraData: {fileID: 0}
+--- !u!1 &581952664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581952665}
+  m_Layer: 0
+  m_Name: ActiveGates
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581952665
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581952664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1172670160}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &678776976
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1080,7 @@ MonoBehaviour:
   m_GunParent: {fileID: 60981107}
   ShootRate: 0
   ShootCount: 0
+  BulletLifeTime: 0
 --- !u!54 &678776979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1460,6 +1503,7 @@ Transform:
   - {fileID: 1090013436}
   - {fileID: 1619056651}
   - {fileID: 204418655}
+  - {fileID: 2129500505}
   m_Father: {fileID: 1610956317}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1733,6 +1777,7 @@ Transform:
   - {fileID: 1328137427}
   - {fileID: 1648344620}
   - {fileID: 2035108283}
+  - {fileID: 581952665}
   m_Father: {fileID: 1610956317}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2237,11 +2282,13 @@ MonoBehaviour:
   - {fileID: 1090013436}
   - {fileID: 1619056651}
   - {fileID: 204418655}
+  - {fileID: 2129500505}
   m_ActiveParents:
   - {fileID: 1135351666}
   - {fileID: 1328137427}
   - {fileID: 1648344620}
   - {fileID: 2035108283}
+  - {fileID: 581952665}
   MergingPlatform: {fileID: 516933704}
 --- !u!1 &1886575300
 GameObject:
@@ -2504,6 +2551,36 @@ Transform:
   - {fileID: 246002678}
   m_Father: {fileID: 516933703}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2129500504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2129500505}
+  m_Layer: 0
+  m_Name: DeactiveGates
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2129500505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129500504}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1008815242}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4740456969306115645
 PrefabInstance:

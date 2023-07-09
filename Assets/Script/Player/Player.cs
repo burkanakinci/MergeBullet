@@ -21,6 +21,7 @@ public class Player : CustomBehaviour<PlayerManager>
     #region ShootData
     [HideInInspector] public float ShootRate;
     [HideInInspector] public int ShootCount;
+    [HideInInspector] public float BulletLifeTime;
     #endregion
 
     #region ExternalAccess

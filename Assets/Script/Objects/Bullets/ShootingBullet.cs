@@ -20,7 +20,7 @@ public class ShootingBullet : Bullet
     }
     private void Update()
     {
-        if (m_LifeCounter < 2.0f)
+        if (m_LifeCounter < GameManager.Instance.PlayerManager.Player.BulletLifeTime)
             m_LifeCounter += Time.deltaTime;
         else
         {
@@ -30,5 +30,12 @@ public class ShootingBullet : Bullet
     private void FixedUpdate()
     {
         SetVelocity();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(ObjectTags.FIRE_RATE_GATE) || other.CompareTag(ObjectTags.TRIPLE_SHOOT_GATE))
+        {
+            OnObjectDeactive();
+        }
     }
 }

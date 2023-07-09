@@ -134,7 +134,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3040896368723761758, guid: adf20cbb8f50dc449afa86e056ff49dd, type: 3}
       propertyPath: m_Name
-      value: LV_1_ShootingBullet
+      value: LV_1_ShootingBullet Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114445709944380240, guid: adf20cbb8f50dc449afa86e056ff49dd, type: 3}
+      propertyPath: m_Height
+      value: 0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114445709944380240, guid: adf20cbb8f50dc449afa86e056ff49dd, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114445709944380240, guid: adf20cbb8f50dc449afa86e056ff49dd, type: 3}
+      propertyPath: m_Center.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114445709944380240, guid: adf20cbb8f50dc449afa86e056ff49dd, type: 3}
+      propertyPath: m_Center.z
+      value: 0.11601435
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114445709944380240, guid: adf20cbb8f50dc449afa86e056ff49dd, type: 3}
+      propertyPath: m_Direction
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adf20cbb8f50dc449afa86e056ff49dd, type: 3}
