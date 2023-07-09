@@ -11,6 +11,9 @@ TagManager:
   - RangeGate
   - Obstacle
   - Gun
+  - Road
+  - CollectableCoin
+  - CollectableShield
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - ShootingBullet
   - Gate
   - Obstacle
-  - 
+  - Collectable
   - 
   - 
   - 

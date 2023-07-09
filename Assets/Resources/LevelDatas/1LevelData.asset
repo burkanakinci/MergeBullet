@@ -12,7 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1f19be90f4ad34d9f93785fe7421b1, type: 3}
   m_Name: 1LevelData
   m_EditorClassIdentifier: 
-  LevelNumber: 1
-  RoadCount: 2
+  RoadCount: 5
   MergingGridWeight: 2
-  MergingGridHeight: 6
+  MergingGridHeight: 2
+  TripleShootPositions:
+  - {x: 1.68, y: 0, z: 21.97}
+  FireGatePositions: []
+  FireGateSpawnValues: 
+  RangeGatePositions:
+  - {x: 0, y: 0, z: 33.77}
+  RangeGateSpawnValues: f6ffffff
+  UseMissile: 0
+  MissileSpawnRate: 3
+  ObstacleWallPositions:
+  - {x: -1.88, y: 0, z: 27.63}
+  CollectableShieldPositions: []
+  CollectableCoinPositions:
+  - {x: -1.5, y: 0, z: 47.5}
+  - {x: -1.4, y: 0, z: 18.4}
