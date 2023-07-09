@@ -83,7 +83,7 @@ public enum ActiveParents
     ShootingBulletActiveParent = 3,
     GateActiveParent = 4,
     ObstacleActiveParent = 5,
-    CollectableActiveParent=7,
+    CollectableActiveParent=6,
 }
 public enum DeactiveParents
 {
