@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1f19be90f4ad34d9f93785fe7421b1, type: 3}
+  m_Name: 2LevelData
+  m_EditorClassIdentifier: 
+  RoadCount: 5
+  MergingGridWeight: 2
+  MergingGridHeight: 2
+  TripleShootPositions:
+  - {x: 1.68, y: 0, z: 21.97}
+  FireGatePositions: []
+  FireGateSpawnValues: 
+  RangeGatePositions:
+  - {x: 0, y: 0, z: 33.77}
+  RangeGateSpawnValues: ffffffff
+  UseMissile: 1
+  MissileSpawnRate: 3
+  ObstacleWallPositions: []
+  CollectableShieldPositions: []
+  CollectableCoinPositions:
+  - {x: -1.5, y: 0, z: 47.5}
+  - {x: -1.4, y: 0, z: 18.4}
+  BarrelValues: 230000000500000064000000

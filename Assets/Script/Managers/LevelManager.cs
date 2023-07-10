@@ -121,19 +121,32 @@ public class LevelManager : CustomBehaviour
                GameManager.Instance.Entities.GetActiveParent(ActiveParents.ObstacleActiveParent));
         }
     }
-    private Coroutine m_MissileSpawnCoroutine;
-    public void StartMissileSpawnCoroutine()
+    public void StopMissileSpawnCoroutine()
     {
         if (m_MissileSpawnCoroutine != null)
         {
             StopCoroutine(m_MissileSpawnCoroutine);
         }
+    }
+    private Coroutine m_MissileSpawnCoroutine;
+    public void StartMissileSpawnCoroutine()
+    {
+        if(CurrentLevelData.UseMissile)
+        {
+        StopMissileSpawnCoroutine();
         StartCoroutine(MissileSpawnCoroutine());
+        }
     }
     private IEnumerator MissileSpawnCoroutine()
     {
         yield return new WaitForSeconds(CurrentLevelData.MissileSpawnRate);
-        //SpawnMissilesrandom pos
+        GameManager.Instance.ObjectPool.SpawnFromPool(
+            PooledObjectTags.OBSTACLE_MISSILE,
+            GameManager.Instance.PlayerManager.Player.GunParent.position + Vector3.forward * 15.0f,
+            Quaternion.identity,
+            GameManager.Instance.Entities.GetActiveParent(ActiveParents.ObstacleActiveParent)
+        );
+        StartMissileSpawnCoroutine();
     }
     #endregion
     #region SpawnCollectable
