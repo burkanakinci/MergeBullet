@@ -20,7 +20,7 @@ public class CollectableCoin : PooledObject
     private Vector3 m_ScreenPos;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(ObjectTags.GUN))
+        if (other.CompareTag(ObjectTags.GUN)&&gameObject.layer!=(int)ObjectsLayer.Default)
         {
             gameObject.layer = (int)ObjectsLayer.Default;
             m_ScreenPos = Camera.main.WorldToScreenPoint(transform.position);
@@ -30,6 +30,7 @@ public class CollectableCoin : PooledObject
                 Quaternion.identity,
                 GameManager.Instance.Entities.GetActiveParent(ActiveParents.CoinArea)
             );
+            OnObjectDeactive();
         }
     }
 }

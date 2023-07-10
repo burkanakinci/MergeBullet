@@ -4,8 +4,4 @@ using UnityEngine;
 
 public class ObstacleMissile : Obstacle
 {
-    private void Update()
-    {
-
-    }
 }
