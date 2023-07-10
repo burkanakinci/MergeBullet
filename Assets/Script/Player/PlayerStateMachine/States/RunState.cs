@@ -75,5 +75,13 @@ public class RunState : IPlayerState
             m_Player.BulletLifeTime += m_TempDecreaseRateValue;
             m_TempCollidedIncreaseGate.DestroyIncreaseGate();
         }
+        else if (_other.CompareTag(ObjectTags.FINISH_TRIGGER))
+        {
+            GameManager.Instance.LevelSuccess();
+        }
+        else if (_other.CompareTag(ObjectTags.FINISH_BARREL))
+        {
+            GameManager.Instance.LevelFailed();
+        }
     }
 }

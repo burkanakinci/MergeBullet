@@ -43,6 +43,8 @@ public struct ObjectTags
     public const string ROAD = "Road";
     public const string COLLECTABLE_COIN = "CollectableCoin";
     public const string COLLECTABLE_SHIELD = "CollectableShield";
+    public const string FINISH_BARREL="FinishBarrel";
+    public const string FINISH_TRIGGER="FinishTrigger";
 }
 public enum PlayerStates
 {
@@ -64,6 +66,8 @@ public enum ObjectsLayer
     Gate = 12,
     Obstacle = 13,
     Collectable=14,
+    FinishBarrel=15,
+    FinishTrigger=16,
 }
 public enum UIPanelType
 {

@@ -14,6 +14,8 @@ TagManager:
   - Road
   - CollectableCoin
   - CollectableShield
+  - FinishBarrel
+  - FinishTrigger
   layers:
   - Default
   - TransparentFX
@@ -30,8 +32,8 @@ TagManager:
   - Gate
   - Obstacle
   - Collectable
-  - 
-  - 
+  - Barrel
+  - FinishTrigger
   - 
   - 
   - 

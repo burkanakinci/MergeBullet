@@ -26,5 +26,8 @@ public class LevelData : ScriptableObject
     public List<Vector3> CollectableShieldPositions;
     public List<Vector3> CollectableCoinPositions;
     #endregion
+    #region Finish
+        public int[] BarrelValues;
+    #endregion
     #endregion
 }

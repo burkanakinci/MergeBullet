@@ -61,13 +61,16 @@ public class MergingGrid : CustomBehaviour<MergingPlatform>
                     ).GetGameObject().GetComponent<MergingBullet>());
         }
     }
+    private Vector3 m_TempSpawnGunPos;
     private void SpawnGuns()
     {
         for (int _x = 0; _x < m_MergingNodes.GetLength(0); _x++)
         {
+            m_TempSpawnGunPos=m_MergingNodes[_x, 0].transform.position + Vector3.forward * 12.5f;
+            m_TempSpawnGunPos.y=0.0f;
             GameManager.Instance.ObjectPool.SpawnFromPool(
                 PooledObjectTags.GUN,
-                m_MergingNodes[_x, 0].transform.position + Vector3.forward * 12.5f,
+                m_TempSpawnGunPos,
                 Quaternion.identity,
                 GameManager.Instance.Entities.GetActiveParent(ActiveParents.GunActiveParent)
             );

@@ -11,10 +11,12 @@ public class Entities : CustomBehaviour
 
     [Header("Scene Objects")]
     public MergingPlatform MergingPlatform;
+    public Finish Finish;
 
     public override void Initialize()
     {
         MergingPlatform.Initialize();
+        Finish.Initialize();
     }
     #region  Getter
     public Transform GetActiveParent(ActiveParents _activeParent)

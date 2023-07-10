@@ -24,7 +24,7 @@ public class CameraManager : CustomBehaviour
     }
     public void FolowPlayer()
     {
-        m_MainCamera.transform.position = GameManager.Instance.PlayerManager.Player.GunParent.position + m_CameraData.PlayerFollowOffset;
+        m_MainCamera.transform.position = Vector3.Lerp(m_MainCamera.transform.position, GameManager.Instance.PlayerManager.Player.GunParent.position + m_CameraData.PlayerFollowOffset, Time.deltaTime * 8.0f);
     }
     private string m_CameraTweenID;
     private Vector3 m_RunStartPos;

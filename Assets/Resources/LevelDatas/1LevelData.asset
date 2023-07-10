@@ -30,3 +30,4 @@ MonoBehaviour:
   CollectableCoinPositions:
   - {x: -1.5, y: 0, z: 47.5}
   - {x: -1.4, y: 0, z: 18.4}
+  BarrelValues: 230000000500000064000000
