@@ -124,9 +124,9 @@ public class Player : CustomBehaviour<PlayerManager>
     private Vector3 m_TempTargetGunsPos;
     public void GunHorizontalMovement()
     {
-        m_TempTargetGunsPos = Vector3.Lerp(m_GunParent.position, m_GunParent.position + Vector3.right * m_HorizontalChangeValue * m_PlayerMovementData.PlayerHorizontalSpeed, Time.deltaTime * 8.0f);
+        m_TempTargetGunsPos += Vector3.right * m_HorizontalChangeValue * m_PlayerMovementData.PlayerHorizontalSpeed;
         m_TempTargetGunsPos.x = Mathf.Clamp(m_TempTargetGunsPos.x, -2.5f, 2.5f);
-        m_GunParent.position = m_TempTargetGunsPos;
+        m_GunParent.localPosition = m_TempTargetGunsPos;
     }
     private float m_HorizontalChangeValue;
     public void SetHorizontalChangeValue(Vector2 _swipe)

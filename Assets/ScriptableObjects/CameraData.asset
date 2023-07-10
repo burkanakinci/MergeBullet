@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b40b4e058625484b948ca521a35c117, type: 3}
   m_Name: CameraData
   m_EditorClassIdentifier: 
-  m_MergingPos: {x: 0, y: 0, z: 0}
-  m_MergingRot: {x: 0, y: 0, z: 0, w: 0}
+  m_MergingPos: {x: 0, y: 12.25, z: 2.63}
+  m_MergingRot: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_ShootRot: {x: 0.08641016, y: -0.13002956, z: 0.011376116, w: 0.9876721}
+  m_PlayerFollowOffset: {x: 1.8, y: 2.5, z: -4}
+  m_RunTweenDuration: 0.35
+  m_RunTweenEase: 1

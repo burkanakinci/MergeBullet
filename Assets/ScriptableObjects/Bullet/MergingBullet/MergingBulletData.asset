@@ -21,5 +21,5 @@ MonoBehaviour:
   m_ClickedUpMovementDuration: 0.4
   m_ClickedUpMovementEase: 19
   m_JumpPower: 1.7
-  m_JumpGunTweenDuration: 0.4
+  m_JumpGunTweenDuration: 1
   m_JumpGunTweenEase: 1

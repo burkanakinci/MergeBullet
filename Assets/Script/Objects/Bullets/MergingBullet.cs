@@ -128,10 +128,11 @@ public class MergingBullet : Bullet
         if (other.CompareTag(ObjectTags.START_GAME_TRIGGER))
         {
             gameObject.layer = (int)ObjectsLayer.Default;
+            GameManager.Instance.CameraManager.OnCompleteMergingState();
             m_TempGun = GameManager.Instance.PlayerManager.Player.GetGun(m_CurrentNode.NodeXIndis);
             m_TempGun.SpawnBulletLevel = BulletLevel;
             m_TempGun.transform.SetParent(GameManager.Instance.PlayerManager.Player.GunParent);
-            m_BulletVisual.BulletVisualScaleTween(Vector3.zero, m_MergingBulletData.JumpGunTweenDuration);
+            m_BulletVisual.BulletVisualScaleTween(Vector3.one * 0.3f, m_MergingBulletData.JumpGunTweenDuration);
             MergingBulletJumpTween(m_TempGun.BulletJumpPoint, m_MergingBulletData.JumpPower, m_MergingBulletData.JumpGunTweenDuration).SetEase(m_MergingBulletData.JumpGunTweenEase)
             .OnComplete(() =>
             {

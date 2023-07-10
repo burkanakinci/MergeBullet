@@ -45,4 +45,15 @@ public class MergingPlatform : CustomBehaviour
             m_MergingBullets[_mergingCount].SetVelocity();
         }
     }
+    private float m_AverageZ;
+    public float GetAverageMergingBullets()
+    {
+        m_AverageZ = 0.0f;
+        for (int _mergingCount = 0; _mergingCount < m_MergingBullets.Count; _mergingCount++)
+        {
+            m_AverageZ += m_MergingBullets[_mergingCount].transform.position.z;
+        }
+        m_AverageZ /= m_MergingBullets.Count;
+        return m_AverageZ;
+    }
 }

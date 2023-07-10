@@ -71,6 +71,7 @@ public class MergingState : IPlayerState
     {
         GameManager.Instance.InputManager.UpdateInput();
         MergingRay();
+        GameManager.Instance.CameraManager.FollowMergingBullet();
     }
     public void UpdatePhysic()
     {
