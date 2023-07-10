@@ -15,7 +15,7 @@ public class RunState : IPlayerState
     public void Enter()
     {
         m_ShootCounter = 0.0f;
-        m_Player.ShootRate = 1.0f;
+        m_Player.ShootRate = 0.3f;
         m_Player.ShootCount = 1;
         GameManager.Instance.InputManager.OnSwiped += m_Player.SetHorizontalChangeValue;
         OnEnterEvent?.Invoke();

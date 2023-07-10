@@ -62,7 +62,7 @@ public class Gun : PooledObject
     {
         for (int _shoot = 0; _shoot < _shootCount; _shoot++)
         {
-            m_TempBulletPointEuler = (_shoot % 2 == 1) ? (-30.0f) : (15.0f * _shoot);
+            m_TempBulletPointEuler = (_shoot % 2 == 1) ? (-20.0f) : (10.0f * _shoot);
             GameManager.Instance.ObjectPool.SpawnFromPool(
                 PooledObjectTags.CONST_SHOOTING_BULLET + SpawnBulletLevel,
                 m_BulletSpawnPoint.position,

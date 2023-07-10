@@ -21,7 +21,7 @@ MonoBehaviour:
   FireGateSpawnValues: 
   RangeGatePositions:
   - {x: 0, y: 0, z: 33.77}
-  RangeGateSpawnValues: f6ffffff
+  RangeGateSpawnValues: ffffffff
   UseMissile: 0
   MissileSpawnRate: 3
   ObstacleWallPositions:

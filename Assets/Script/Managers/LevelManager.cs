@@ -88,7 +88,7 @@ public class LevelManager : CustomBehaviour
                 Quaternion.identity,
                 GameManager.Instance.Entities.GetActiveParent(ActiveParents.GateActiveParent)
             ).GetGameObject().GetComponent<IncreaseGate>();
-            m_TempSpawnedGate.GateValue = CurrentLevelData.FireGateSpawnValues[_fireCount];
+            m_TempSpawnedGate.SetGateValue(CurrentLevelData.FireGateSpawnValues[_fireCount]);
         }
     }
     private void SpawnRangeGate()
@@ -101,7 +101,7 @@ public class LevelManager : CustomBehaviour
                 Quaternion.identity,
                 GameManager.Instance.Entities.GetActiveParent(ActiveParents.GateActiveParent)
             ).GetGameObject().GetComponent<IncreaseGate>();
-            m_TempSpawnedGate.GateValue = CurrentLevelData.RangeGateSpawnValues[_rangeCount];
+            m_TempSpawnedGate.SetGateValue(CurrentLevelData.RangeGateSpawnValues[_rangeCount]);
         }
     }
     #endregion

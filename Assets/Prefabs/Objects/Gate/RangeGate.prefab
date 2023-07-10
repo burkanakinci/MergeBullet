@@ -228,9 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa3c9b70a2e3af46b31bf186f21ce3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PositiveGateColor: {r: 0.5, g: 1, b: 0.5, a: 1}
-  m_NegativeGateColor: {r: 1, g: 0.75, b: 0.25, a: 1}
-  m_ZeroGateColor: {r: 1, g: 0.5, b: 0.5, a: 1}
+  m_IncreaseGateData: {fileID: 11400000, guid: 08b42ef224dd9e34a96e61f6ec1ba1e4, type: 2}
   m_GateSprite: {fileID: 2464046200894449421}
   m_GateText: {fileID: 2464046199137743900}
   GateValue: 0

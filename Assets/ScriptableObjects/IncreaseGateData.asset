@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8feb95ec03016e40a8f1b8becec8403, type: 3}
-  m_Name: PlayerMovementData
+  m_Script: {fileID: 11500000, guid: a5b13a3529fe162459e211b95a6a6a0a, type: 3}
+  m_Name: IncreaseGateData
   m_EditorClassIdentifier: 
-  m_PlayerForwardSpeed: 5
-  m_PlayerHorizontalSpeed: 2
+  m_PositiveGateColor: {r: 0, g: 1, b: 0.35, a: 1}
+  m_NegativeGateColor: {r: 1, g: 0.142, b: 0, a: 1}
+  m_ZeroGateColor: {r: 0, g: 0.9811321, b: 0.7134138, a: 1}

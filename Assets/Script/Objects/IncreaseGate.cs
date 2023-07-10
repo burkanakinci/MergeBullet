@@ -5,12 +5,11 @@ using TMPro;
 
 public class IncreaseGate : PooledObject
 {
-    [SerializeField] Color m_PositiveGateColor;
-    [SerializeField] Color m_NegativeGateColor;
-    [SerializeField] Color m_ZeroGateColor;
+    [SerializeField] private IncreaseGateData m_IncreaseGateData;
     [SerializeField] private SpriteRenderer m_GateSprite;
     [SerializeField] private TextMeshPro m_GateText;
-    public int GateValue ;
+    [SerializeField] private int m_GateValue;
+    public int GateValue => m_GateValue;
     public override void Initialize()
     {
         base.Initialize();
@@ -24,24 +23,25 @@ public class IncreaseGate : PooledObject
     {
         base.OnObjectDeactive();
     }
-    private void SetGateValue(int _value)
+    public void SetGateValue(int _value)
     {
-        GateValue = _value;
+        m_GateValue = _value;
+        m_GateText.text = GateValue.ToString();
         SetSpriteColor();
     }
     private void SetSpriteColor()
     {
         if (GateValue > 0)
         {
-            m_GateSprite.color = m_PositiveGateColor;
+            m_GateSprite.color = m_IncreaseGateData.PositiveGateColor;
         }
         else if (GateValue < 0)
         {
-            m_GateSprite.color = m_NegativeGateColor;
+            m_GateSprite.color = m_IncreaseGateData.NegativeGateColor;
         }
         else
         {
-            m_GateSprite.color = m_ZeroGateColor;
+            m_GateSprite.color = m_IncreaseGateData.ZeroGateColor;
         }
     }
     private void OnTriggerEnter(Collider other)
