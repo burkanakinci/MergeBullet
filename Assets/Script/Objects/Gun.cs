@@ -53,7 +53,7 @@ public class Gun : PooledObject
         else
         {
             m_RandomPoint = Random.insideUnitCircle * (GameManager.Instance.PlayerManager.Player.GunCount * 0.2f);
-            m_LocalGunPos = new Vector3(m_RandomPoint.x, m_RandomPoint.y);
+            m_LocalGunPos = new Vector3(m_RandomPoint.x, 0.0f, m_RandomPoint.y);
             GunMoveTween(m_LocalGunPos, m_GunData.LocalMoveDuration, true);
         }
     }
