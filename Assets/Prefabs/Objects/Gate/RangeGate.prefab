@@ -231,7 +231,7 @@ MonoBehaviour:
   m_IncreaseGateData: {fileID: 11400000, guid: 08b42ef224dd9e34a96e61f6ec1ba1e4, type: 2}
   m_GateSprite: {fileID: 2464046200894449421}
   m_GateText: {fileID: 2464046199137743900}
-  GateValue: 0
+  m_GateValue: 0
 --- !u!1 &2464046200894449419
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c89aec65b2fa6ef449118a281a047f8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -659,7 +659,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c89aec65b2fa6ef449118a281a047f8c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

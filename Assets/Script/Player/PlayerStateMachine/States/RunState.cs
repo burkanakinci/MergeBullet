@@ -14,6 +14,7 @@ public class RunState : IPlayerState
 
     public void Enter()
     {
+        GameManager.Instance.UIManager.GetPanel(UIPanelType.RunPanel).ShowPanel();
         m_ShootCounter = 0.0f;
         m_Player.ShootRate = 0.3f;
         m_Player.ShootCount = 1;
