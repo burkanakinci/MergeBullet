@@ -35,7 +35,7 @@ public class RunState : IPlayerState
             m_ShootCounter = 0.0f;
         }
         GameManager.Instance.InputManager.UpdateInput();
-        GameManager.Instance.CameraManager.FolowPlayer();
+        GameManager.Instance.CameraManager.FollowPlayer();
     }
     public void UpdatePhysic()
     {

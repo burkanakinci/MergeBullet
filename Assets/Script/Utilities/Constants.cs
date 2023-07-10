@@ -30,6 +30,7 @@ public struct PooledObjectTags
     public const string COLLECTABLE_COIN = "CollectableCoin";
     public const string COLLECTABLE_SHIELD = "CollectableShield";
     public const string UI_COIN= "UIEarnedCoin";
+    public const string VFX_GREEN_BLAST="GreenBlastVFX";
 }
 public struct ObjectTags
 {
@@ -91,6 +92,7 @@ public enum ActiveParents
     CollectableActiveParent=6,
     Canvas=7,
     CoinArea=8,
+    VFXActiveParent=9,
 }
 public enum DeactiveParents
 {
@@ -103,6 +105,7 @@ public enum DeactiveParents
     ObstacleDeactiveParent = 6,
     CollectableDeactiveParent=7,
     UIObjectsDeactiveParent=8,
+    VFXDeactiveParent=9,
 }
 public enum ListOperations
 {

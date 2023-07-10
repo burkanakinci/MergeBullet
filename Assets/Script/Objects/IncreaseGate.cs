@@ -66,7 +66,16 @@ public class IncreaseGate : PooledObject
     public void DestroyIncreaseGate()
     {
         GateScaleTween(Vector3.zero, m_IncreaseGateData.DestroyTweenDuration).SetEase(m_IncreaseGateData.DestroyTweenEase)
-        .OnComplete(OnObjectDeactive);
+        .OnComplete(() =>
+        {
+            GameManager.Instance.ObjectPool.SpawnFromPool(
+                PooledObjectTags.VFX_GREEN_BLAST,
+                transform.position,
+                Quaternion.identity,
+                GameManager.Instance.Entities.GetActiveParent(ActiveParents.VFXActiveParent)
+            );
+            OnObjectDeactive();
+        });
     }
     private void KillAllTween()
     {

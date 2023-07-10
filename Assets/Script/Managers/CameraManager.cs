@@ -22,9 +22,9 @@ public class CameraManager : CustomBehaviour
             m_MainCamera.transform.position = new Vector3(m_MainCamera.transform.position.x, m_MainCamera.transform.position.y, GameManager.Instance.Entities.MergingPlatform.GetAverageMergingBullets());
         }
     }
-    public void FolowPlayer()
+    public void FollowPlayer()
     {
-        m_MainCamera.transform.position = Vector3.Lerp(m_MainCamera.transform.position, GameManager.Instance.PlayerManager.Player.GunParent.position + m_CameraData.PlayerFollowOffset, Time.deltaTime * 8.0f);
+        m_MainCamera.transform.position = GameManager.Instance.PlayerManager.Player.GunParent.position + m_CameraData.PlayerFollowOffset;
     }
     private string m_CameraTweenID;
     private Vector3 m_RunStartPos;

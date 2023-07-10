@@ -131,10 +131,10 @@ public class LevelManager : CustomBehaviour
     private Coroutine m_MissileSpawnCoroutine;
     public void StartMissileSpawnCoroutine()
     {
-        if(CurrentLevelData.UseMissile)
+        if (CurrentLevelData.UseMissile)
         {
-        StopMissileSpawnCoroutine();
-        StartCoroutine(MissileSpawnCoroutine());
+            StopMissileSpawnCoroutine();
+            m_MissileSpawnCoroutine=StartCoroutine(MissileSpawnCoroutine());
         }
     }
     private IEnumerator MissileSpawnCoroutine()

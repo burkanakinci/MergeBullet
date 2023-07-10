@@ -55,11 +55,9 @@ public class InputManager : CustomBehaviour
         m_TempInputMovementChange.y = Input.mousePosition.y - m_TouchDownPos.y;
         m_TempInputMovementChange.x = m_TempInputMovementChange.x / m_ScreenWidth;
         m_TempInputMovementChange.y = m_TempInputMovementChange.y / m_ScreenHeight;
-        if (Math.Round(m_TempInputMovementChange.sqrMagnitude, 2) > 0.0f)
-        {
-            m_InputMovementChange = m_TempInputMovementChange;
-            m_TouchDownPos = Input.mousePosition;
-        }
+        m_InputMovementChange = m_TempInputMovementChange;
+        m_TouchDownPos = Input.mousePosition;
+
     }
     private void TouchControlsUp()
     {

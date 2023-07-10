@@ -56,7 +56,7 @@ public class MergingBullet : Bullet
     }
     public void ClickedMovementMergingBullet(Vector3 _pos)
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(_pos.x, transform.position.y, _pos.z), Time.deltaTime * 10.0f);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(_pos.x, transform.position.y, _pos.z), Time.deltaTime * 8.0f);
     }
     private MergingBullet m_TempSpawnedBullet;
     private string m_MergedSpawnTag;

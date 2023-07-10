@@ -30,7 +30,16 @@ public class TripleShootGate : PooledObject
     public void DestroyTripleShootGate()
     {
         GateScaleTween(Vector3.zero, m_TripleShootGateData.DestroyTweenDuration).SetEase(m_TripleShootGateData.DestroyTweenEase)
-        .OnComplete(OnObjectDeactive);
+        .OnComplete(()=>
+        {
+            GameManager.Instance.ObjectPool.SpawnFromPool(
+                PooledObjectTags.VFX_GREEN_BLAST,
+                transform.position,
+                Quaternion.identity,
+                GameManager.Instance.Entities.GetActiveParent(ActiveParents.VFXActiveParent)
+            );
+            OnObjectDeactive();
+        });
     }
     private void KillAllTween()
     {
