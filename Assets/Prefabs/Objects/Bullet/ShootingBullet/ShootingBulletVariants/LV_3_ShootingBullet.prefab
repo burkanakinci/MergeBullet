@@ -137,6 +137,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: d4fec86708d1ecd44b30819d138ee915, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6c69d61009488a244a99fb62a3104aec, type: 2}
     - target: {fileID: 919132149155446097, guid: d4fec86708d1ecd44b30819d138ee915, type: 3}
       propertyPath: m_Name
       value: BulletLevel3
