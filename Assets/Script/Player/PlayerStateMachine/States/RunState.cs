@@ -44,30 +44,35 @@ public class RunState : IPlayerState
         GameManager.Instance.InputManager.OnSwiped -= m_Player.SetHorizontalChangeValue;
         OnExitEvent?.Invoke();
     }
-    private IncreaseGate m_TempCollidedGate;
+    private IncreaseGate m_TempCollidedIncreaseGate;
+    private TripleShootGate m_TempCollidedTripleShootGate;
     private float m_TempDecreaseRateValue;
     public void TriggerEnter(Collider _other)
     {
         if (_other.CompareTag(ObjectTags.TRIPLE_SHOOT_GATE))
         {
-            _other.gameObject.layer = (int)ObjectsLayer.Default;
+            m_TempCollidedTripleShootGate = _other.GetComponent<TripleShootGate>();
+            m_TempCollidedTripleShootGate.gameObject.layer = (int)ObjectsLayer.Default;
+            m_TempCollidedTripleShootGate.DestroyTripleShootGate();
             m_Player.ShootCount = 3;
         }
         else if (_other.CompareTag(ObjectTags.FIRE_RATE_GATE) && _other.gameObject.layer != (int)ObjectsLayer.Default)
         {
             _other.gameObject.layer = (int)ObjectsLayer.Default;
-            m_TempCollidedGate = _other.GetComponent<IncreaseGate>();
+            m_TempCollidedIncreaseGate = _other.GetComponent<IncreaseGate>();
             m_TempDecreaseRateValue = m_Player.ShootRate / 2.0f;
-            m_TempDecreaseRateValue *= (Mathf.Clamp(m_TempCollidedGate.GateValue, 0, 100) / 100.0f);
+            m_TempDecreaseRateValue *= (Mathf.Clamp(m_TempCollidedIncreaseGate.GateValue, 0, 100) / 100.0f);
             m_Player.ShootRate -= m_TempDecreaseRateValue;
+            m_TempCollidedIncreaseGate.DestroyIncreaseGate();
         }
         else if (_other.CompareTag(ObjectTags.RANGE_GATE) && _other.gameObject.layer != (int)ObjectsLayer.Default)
         {
             _other.gameObject.layer = (int)ObjectsLayer.Default;
-            m_TempCollidedGate = _other.GetComponent<IncreaseGate>();
+            m_TempCollidedIncreaseGate = _other.GetComponent<IncreaseGate>();
             m_TempDecreaseRateValue = m_Player.BulletLifeTime / 2.0f;
-            m_TempDecreaseRateValue *= (Mathf.Clamp(m_TempCollidedGate.GateValue, 0, 100) / 100.0f);
+            m_TempDecreaseRateValue *= (Mathf.Clamp(m_TempCollidedIncreaseGate.GateValue, 0, 100) / 100.0f);
             m_Player.BulletLifeTime += m_TempDecreaseRateValue;
+            m_TempCollidedIncreaseGate.DestroyIncreaseGate();
         }
     }
 }

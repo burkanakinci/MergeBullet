@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feafac3efc9836042a046fdc14736b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TripleShootGateData: {fileID: 11400000, guid: bf554aa0f6eea3e49a466738ee19a454, type: 2}
 --- !u!1 &1977003378986162184
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,3 +15,9 @@ MonoBehaviour:
   m_PositiveGateColor: {r: 0, g: 1, b: 0.35, a: 1}
   m_NegativeGateColor: {r: 1, g: 0.142, b: 0, a: 1}
   m_ZeroGateColor: {r: 0, g: 0.9811321, b: 0.7134138, a: 1}
+  m_DestroyTweenDuration: 0.5
+  m_DestroyTweenEase: 18
+  m_PunchScaleUpDuration: 0.1
+  m_PunchScaleUpnEase: 1
+  m_PunchScaleDownDuration: 0.1
+  m_PunchScaleDownnEase: 1

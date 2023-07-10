@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8feb95ec03016e40a8f1b8becec8403, type: 3}
-  m_Name: PlayerMovementData
+  m_Script: {fileID: 11500000, guid: ee7d321969a12ef4cba10575e055df61, type: 3}
+  m_Name: TripleShootGateData
   m_EditorClassIdentifier: 
-  m_PlayerForwardSpeed: 4
-  m_PlayerHorizontalSpeed: 2
+  m_DestroyTweenDuration: 0.5
+  m_DestroyTweenEase: 1
+  m_PunchScaleUpDuration: 0
+  m_PunchScaleUpnEase: 1
+  m_PunchScaleDownDuration: 0
+  m_PunchScaleDownnEase: 1

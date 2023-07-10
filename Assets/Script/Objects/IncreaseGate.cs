@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class IncreaseGate : PooledObject
 {
@@ -13,14 +14,17 @@ public class IncreaseGate : PooledObject
     public override void Initialize()
     {
         base.Initialize();
+        m_ScaleTweenID = GetInstanceID() + "m_DestroyTweenID";
     }
     public override void OnObjectSpawn()
     {
         gameObject.layer = (int)ObjectsLayer.Gate;
+        transform.localScale = Vector3.one;
         base.OnObjectSpawn();
     }
     public override void OnObjectDeactive()
     {
+        KillAllTween();
         base.OnObjectDeactive();
     }
     public void SetGateValue(int _value)
@@ -48,7 +52,24 @@ public class IncreaseGate : PooledObject
     {
         if (other.CompareTag(ObjectTags.SHOOTING_BULLET))
         {
+            GateScaleTween(Vector3.one * 1.1f, m_IncreaseGateData.PunchScaleUpDuration).SetEase(m_IncreaseGateData.PunchScaleUpnEase)
+            .OnComplete(() => GateScaleTween(Vector3.one, m_IncreaseGateData.PunchScaleDownDuration).SetEase(m_IncreaseGateData.PunchScaleDownnEase));
             SetGateValue(GateValue + 1);
         }
+    }
+    private string m_ScaleTweenID;
+    private Tween GateScaleTween(Vector3 _target, float _duration)
+    {
+        DOTween.Kill(m_ScaleTweenID);
+        return transform.DOScale(_target, _duration).SetId(m_ScaleTweenID);
+    }
+    public void DestroyIncreaseGate()
+    {
+        GateScaleTween(Vector3.zero, m_IncreaseGateData.DestroyTweenDuration).SetEase(m_IncreaseGateData.DestroyTweenEase)
+        .OnComplete(OnObjectDeactive);
+    }
+    private void KillAllTween()
+    {
+        DOTween.Kill(m_ScaleTweenID);
     }
 }

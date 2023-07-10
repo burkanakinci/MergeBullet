@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MergingPos: {x: 0, y: 12.25, z: 2.63}
   m_MergingRot: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_ShootRot: {x: 0.08641016, y: -0.13002956, z: 0.011376116, w: 0.9876721}
-  m_PlayerFollowOffset: {x: 1.8, y: 3, z: -8}
+  m_ShootRot: {x: 0.085329056, y: -0.05645323, z: 0.017750612, w: 0.99459386}
+  m_PlayerFollowOffset: {x: 1.35, y: 4, z: -8}
   m_RunTweenDuration: 0.35
   m_RunTweenEase: 1
