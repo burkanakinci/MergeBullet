@@ -14,6 +14,7 @@ public class MergingState : IPlayerState
 
     public void Enter()
     {
+        m_UseUpdate = true;
         m_Player.transform.position = Vector3.forward * 12.5f;
         m_Player.SetGunParentLocalPos(Vector3.zero);
         GameManager.Instance.LevelManager.SetLevelNumber(m_Player.PlayerLevel);
@@ -21,6 +22,7 @@ public class MergingState : IPlayerState
         GameManager.Instance.UIManager.GetPanel(UIPanelType.MergingPanel).ShowPanel();
         GameManager.Instance.InputManager.OnTouchDown += InputDownMerging;
         GameManager.Instance.InputManager.OnTouchUp += InputUp;
+        GameManager.Instance.Entities.MergingPlatform.OnShootMergingBullets += OffUpdate;
         OnEnterEvent?.Invoke();
     }
     private Action m_RayCollidedEvent;
@@ -29,6 +31,7 @@ public class MergingState : IPlayerState
     private int m_MergingLayerMask;
     private MergingBullet m_ClickedMergingBullet;
     private Node m_ClickedNode;
+    private bool m_UseUpdate;
     private void MergingRay()
     {
         m_MergingRay = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -39,6 +42,8 @@ public class MergingState : IPlayerState
     }
     private void InputDownMerging()
     {
+        if (!m_UseUpdate)
+            return;
         m_MergingLayerMask = 1 << (int)ObjectsLayer.MergingBullet;
         m_RayCollidedEvent = () =>
         {
@@ -61,6 +66,8 @@ public class MergingState : IPlayerState
     }
     private void InputUp()
     {
+        if (!m_UseUpdate)
+            return;
         m_MergingLayerMask = -1;
         if (m_ClickedMergingBullet != null)
         {
@@ -70,9 +77,15 @@ public class MergingState : IPlayerState
     }
     public void UpdateLogic()
     {
+        GameManager.Instance.CameraManager.FollowMergingBullet();
+        if (!m_UseUpdate)
+            return;
         GameManager.Instance.InputManager.UpdateInput();
         MergingRay();
-        GameManager.Instance.CameraManager.FollowMergingBullet();
+    }
+    private void OffUpdate()
+    {
+        m_UseUpdate = false;
     }
     public void UpdatePhysic()
     {
@@ -82,6 +95,7 @@ public class MergingState : IPlayerState
     {
         GameManager.Instance.InputManager.OnTouchDown -= InputDownMerging;
         GameManager.Instance.InputManager.OnTouchUp -= InputUp;
+        GameManager.Instance.Entities.MergingPlatform.OnShootMergingBullets -= OffUpdate;
         OnExitEvent?.Invoke();
     }
     public void TriggerEnter(Collider _other)
