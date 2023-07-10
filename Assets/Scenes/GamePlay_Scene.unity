@@ -2349,6 +2349,7 @@ MonoBehaviour:
   m_UIPanels:
   - {fileID: 1086200648}
   - {fileID: 84317129}
+  - {fileID: 633405382}
 --- !u!1001 &1079893414
 PrefabInstance:
   m_ObjectHideFlags: 0

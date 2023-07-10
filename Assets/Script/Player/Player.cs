@@ -121,12 +121,20 @@ public class Player : CustomBehaviour<PlayerManager>
     {
         m_PlayerRB.velocity = m_PlayerMovementData.PlayerForwardSpeed * Vector3.forward;
     }
+    public void SetPlayerVelocity(Vector3 _target)
+    {
+        m_PlayerRB.velocity = _target;
+    }
+    public void SetGunParentLocalPos(Vector3 _target)
+    {
+        m_GunParent.localPosition = _target;
+    }
     private Vector3 m_TempTargetGunsPos;
     public void GunHorizontalMovement()
     {
         m_TempTargetGunsPos += Vector3.right * m_HorizontalChangeValue * m_PlayerMovementData.PlayerHorizontalSpeed;
         m_TempTargetGunsPos.x = Mathf.Clamp(m_TempTargetGunsPos.x, -2.5f, 2.5f);
-        m_GunParent.localPosition = m_TempTargetGunsPos;
+        SetGunParentLocalPos(m_TempTargetGunsPos);
     }
     private float m_HorizontalChangeValue;
     public void SetHorizontalChangeValue(Vector2 _swipe)

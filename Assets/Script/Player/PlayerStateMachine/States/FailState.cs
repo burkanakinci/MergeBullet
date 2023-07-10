@@ -21,11 +21,10 @@ public class FailState : IPlayerState
     }
     public void UpdateLogic()
     {
-
     }
     public void UpdatePhysic()
     {
-
+        GameManager.Instance.PlayerManager.Player.SetPlayerVelocity(Vector3.zero);
     }
     public void Exit()
     {

@@ -13,6 +13,6 @@ public class NextLevelButton : UIBaseButton<UIPanel>
     {
         if (!m_IsRestart)
             GameManager.Instance.PlayerManager.Player.SetPlayerLevel(GameManager.Instance.PlayerManager.Player.PlayerLevel + 1);
-        GameManager.Instance.GameStart();
+        GameManager.Instance.ResetToMainMenu();
     }
 }
